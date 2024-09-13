@@ -19,7 +19,7 @@ const initialState = {
 };
 
 const taskReducer = (state = initialState, action:any) => {
-  switch (action.type) {
+  switch (action?.type) {
     case ADD_TASK:
       return {
         ...state,
