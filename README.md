@@ -44,7 +44,6 @@ Copy code
 npm start
 # or
 yarn start
-Open the app at http://localhost:3000.
 
 Building for Production
 To make the production build, use:
