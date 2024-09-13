@@ -21,7 +21,7 @@ const storage2 = {
     key: 'root',
     storage: storage2
   };
-
+// @ts-ignore
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer);

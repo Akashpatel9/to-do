@@ -9,6 +9,7 @@ import { addTask } from "../store/action";
 
 
 function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }:any) {
+  // @ts-ignore
   const [grid, setGrid] = useState<boolean>(false);
   const [task, setTask] = useState("");
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }:any
   const [isloading, setIsLoading] = useState(false);
 
   const [tasks, setTasks] = useState([]);
-
+// @ts-ignore
   const data = useSelector((state) => state?.task?.tasks);
 
   useEffect(() => {
@@ -93,7 +94,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }:any
           >
             {/* tasks */}
             {!isloading &&
-              tasks.map((item) => {
+              tasks.map((item) => {// @ts-ignore
                 if (item?.completed === false) {
                   return (
                     <div
@@ -118,7 +119,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }:any
 
           <div>
             {!isloading &&
-              tasks.map((item) => {
+              tasks.map((item) => {// @ts-ignore
                 if (item?.completed === true) {
                   return (
                     <div

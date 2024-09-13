@@ -38,8 +38,8 @@ const taskReducer = (state = initialState, action:any) => {
     case TOGGLE_TASK_COMPLETED:
       return {
         ...state,
-        tasks: state.tasks.map((task) =>
-          task?.id === action.payload.taskId
+        tasks: state.tasks.map((task) =>// @ts-ignore
+          task?.id === action.payload.taskId// @ts-ignore
             ? { ...task, completed: !task?.completed }
             : task
         ),
@@ -48,8 +48,8 @@ const taskReducer = (state = initialState, action:any) => {
       case TOGGLE_TASK_IMPORTANT:
       return {
         ...state,
-        tasks: state.tasks.map((task) =>
-          task?.id === action.payload.taskId
+        tasks: state.tasks.map((task) =>// @ts-ignore
+          task?.id === action.payload.taskId// @ts-ignore
             ? { ...task, important: !task?.important }
             : task
         ),
@@ -69,7 +69,9 @@ const taskReducer = (state = initialState, action:any) => {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
+          // @ts-ignore
           task?.id === action.payload.taskId
+          // @ts-ignore
             ? { ...task, dueDate: action.payload.dueDate }
             : task
         ),
@@ -77,7 +79,7 @@ const taskReducer = (state = initialState, action:any) => {
 
       case DELETE_TASK:
         return {
-          ...state,
+          ...state,// @ts-ignore
           tasks: state.tasks.filter((task) => task?.id !== action.payload.taskId),
         };
   

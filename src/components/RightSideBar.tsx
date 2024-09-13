@@ -21,6 +21,7 @@ function RightSideBar({todoData, isOpened, setIsOpened}:any) {
 
   const dispatch = useDispatch();
 
+  
   const handleDateChange = (selectedDate:any) => {
     setDate(selectedDate);
   };

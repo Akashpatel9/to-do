@@ -13,10 +13,12 @@ function SideBar({ sideBar, setAllTask, setImportantTask, setTudayTask }:any) {
   let totalToday = 0;
 
   const percentage = useSelector((state) => {
+    // @ts-ignore
     let data = state?.task?.tasks?.filter((e) => {
       return new Date(e?.date).getDate() === new Date(Date.now()).getDate();
     });
     totalToday = data?.length;
+    // @ts-ignore
     const completed = data.filter((e) => e?.completed)?.length;
     console.log(completed);
     return ((completed / data?.length) * 100);
