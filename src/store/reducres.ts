@@ -58,8 +58,8 @@ const taskReducer = (state = initialState, action:any) => {
     case ADD_NOTE_TO_TASK:
       return {
         ...state,
-        tasks: state.tasks.map((task) =>
-          task?.id === action.payload.taskId
+        tasks: state.tasks.map((task) =>// @ts-ignore
+          task?.id === action.payload.taskId// @ts-ignore
             ? { ...task, notes: action.payload.note }
             : task
         ),

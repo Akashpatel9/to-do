@@ -101,7 +101,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }:any
                       onClick={() => {
                         setTodoData(item);
                       }}
-                      key={item.id}
+                      key={item?.id}
                     >
                       {" "}
                       <TodosCard data={item} setSideBar={setSideBar} />
@@ -126,7 +126,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }:any
                       onClick={() => {
                         setTodoData(item);
                       }}
-                      key={item.id}
+                      key={item?.id}
                     >
                       {" "}
                       <TodosCard data={item} setSideBar={setSideBar} />
