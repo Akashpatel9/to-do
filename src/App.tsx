@@ -7,6 +7,7 @@ import Signin from "./_auth/Signin";
 import { useState } from "react";
 
 function App() {
+  // @ts-ignore
   const {isAuthenticated} = useSelector((state)=>state?.auth);
 
   
