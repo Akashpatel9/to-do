@@ -24,10 +24,10 @@ const taskReducer = (state = initialState, action:any) => {
       return {
         ...state,
         tasks: [
-          ...state.tasks,
+          ...state?.tasks,
           {
             id: new Date().getTime(), // Unique ID for each task
-            name: action.payload.name,
+            name: action?.payload?.name,
             completed: false,
             notes: "",
             date:Date.now()
@@ -38,8 +38,8 @@ const taskReducer = (state = initialState, action:any) => {
     case TOGGLE_TASK_COMPLETED:
       return {
         ...state,
-        tasks: state.tasks.map((task) =>// @ts-ignore
-          task?.id === action.payload.taskId// @ts-ignore
+        tasks: state?.tasks?.map((task) =>// @ts-ignore
+          task?.id === action?.payload?.taskId// @ts-ignore
             ? { ...task, completed: !task?.completed }
             : task
         ),
@@ -48,8 +48,8 @@ const taskReducer = (state = initialState, action:any) => {
       case TOGGLE_TASK_IMPORTANT:
       return {
         ...state,
-        tasks: state.tasks.map((task) =>// @ts-ignore
-          task?.id === action.payload.taskId// @ts-ignore
+        tasks: state?.tasks?.map((task) =>// @ts-ignore
+          task?.id === action?.payload?.taskId// @ts-ignore
             ? { ...task, important: !task?.important }
             : task
         ),
@@ -58,7 +58,7 @@ const taskReducer = (state = initialState, action:any) => {
     case ADD_NOTE_TO_TASK:
       return {
         ...state,
-        tasks: state.tasks.map((task:any) =>// @ts-ignore
+        tasks: state?.tasks?.map((task:any) =>// @ts-ignore
           task?.id === action?.payload?.taskId// @ts-ignore
             ? { ...task, notes: action?.payload?.note }
             : task
@@ -68,7 +68,7 @@ const taskReducer = (state = initialState, action:any) => {
       case SET_DUE_DATE:
       return {
         ...state,
-        tasks: state.tasks.map((task) =>
+        tasks: state?.tasks?.map((task) =>
           // @ts-ignore
           task?.id === action?.payload?.taskId
           // @ts-ignore
@@ -80,7 +80,7 @@ const taskReducer = (state = initialState, action:any) => {
       case DELETE_TASK:
         return {
           ...state,// @ts-ignore
-          tasks: state.tasks.filter((task:any) => task?.id !== action?.payload?.taskId),
+          tasks: state?.tasks?.filter((task:any) => task?.id !== action?.payload?.taskId),
         };
   
 
