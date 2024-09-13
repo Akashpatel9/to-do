@@ -8,7 +8,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { green } from "@mui/material/colors";
 import { useState } from "react";
 import { Calendar } from "./ui/calendar";
-import { toggleTaskCompleted, toggleTaskImportent } from "../store/action";
+import { deleteTask, toggleTaskCompleted, toggleTaskImportent } from "../store/action";
 import { useDispatch } from "react-redux";
 import { FaRegStar } from "react-icons/fa";
 
@@ -23,17 +23,14 @@ function RightSideBar({todoData, isOpened, setIsOpened}) {
   const dispatch = useDispatch();
 
   const handleDateChange = (selectedDate) => {
-    console.log(selectedDate.toString(),"fdbfdbberberhbe");
     setDate(selectedDate);
-     // Update local state
-    // dispatch(setDueDate(taskId, selectedDate)); // Dispatch to Redux store
   };
 
-  console.log("first", date)
+  console.log("first", todoData)
   
   return (
     isOpened && (
-      <div className="w-2/3 bg-[#EEF6EF] flex flex-col justify-between max-sm:h-full max-sm:absolute max-sm:w-full max-sm:bg-white max-h-[94vh] dark:bg-[#2C2C2C] dark:text-white">
+      <div className="w-2/3 z-40 bg-[#EEF6EF] flex flex-col justify-between max-sm:h-full max-sm:absolute max-sm:w-full max-sm:bg-white max-h-[94vh] dark:bg-[#2C2C2C] dark:text-white">
         <div className="w-full pl-8 max-sm:pl-0 max-sm:p-2">
           
 
@@ -131,7 +128,10 @@ function RightSideBar({todoData, isOpened, setIsOpened}) {
         <div className="flex justify-between items-center border-t-2 border-[#35793799] h-20 w-full px-2 max-sm:px-6">
           <IoMdClose className="text-2xl" onClick={()=> setIsOpened(false)} />
           <h1>Created Today</h1>
-          <RiDeleteBin6Fill className="text-2xl" />
+          <RiDeleteBin6Fill className="text-2xl" onClick={()=>{
+            dispatch(deleteTask(todoData?.id))
+            setIsOpened(false)
+          }} />
         </div>
       </div>
     )

@@ -19,6 +19,7 @@ export const ADD_TASK = "ADD_TASK";
 export const TOGGLE_TASK_COMPLETED = "TOGGLE_TASK_COMPLETED";
 export const ADD_NOTE_TO_TASK = "ADD_NOTE_TO_TASK";
 export const TOGGLE_TASK_IMPORTANT = "TOGGLE_TASK_IMPORTANT";
+export const DELETE_TASK = "DELETE_TASK";
 
 // Action creators
 export const addTask = (name) => ({
@@ -45,4 +46,10 @@ export const SET_DUE_DATE = "SET_DUE_DATE";
 export const setDueDate = (taskId, dueDate) => ({
   type: SET_DUE_DATE,
   payload: { taskId, dueDate },
+});
+
+
+export const deleteTask = (taskId) => ({
+  type: DELETE_TASK,
+  payload: { taskId },
 });

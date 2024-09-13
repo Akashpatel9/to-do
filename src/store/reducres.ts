@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { LOGIN, LOGOUT, SET_DUE_DATE, TOGGLE_TASK_IMPORTANT } from "./action";
+import { DELETE_TASK, LOGIN, LOGOUT, SET_DUE_DATE, TOGGLE_TASK_IMPORTANT } from "./action";
 
 import {
   ADD_TASK,
@@ -74,6 +74,13 @@ const taskReducer = (state = initialState, action) => {
             : task
         ),
       };
+
+      case DELETE_TASK:
+        return {
+          ...state,
+          tasks: state.tasks.filter((task) => task.id !== action.payload.taskId),
+        };
+  
 
     default:
       return state;

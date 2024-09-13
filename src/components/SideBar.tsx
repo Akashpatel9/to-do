@@ -29,7 +29,7 @@ function SideBar({ sideBar, setAllTask, setImportantTask, setTudayTask }) {
 
   return (
     sideBar && (
-      <div className="w-1/3 md:px-4 md:w-1/4 max-sm:z-4  max-h-[94vh] max-sm:absolute max-sm:h-full  max-sm:w-full overflow-auto dark:text-white dark:bg-[#242424] ">
+      <div className="w-1/3 md:px-0 max-md:px-0 md:w1/2 max-md:w-1/2 max-sm:z-4 z-40 bg-white  max-h-[94vh] max-sm:absolute max-sm:h-full  max-sm:w-full overflow-auto dark:text-white dark:bg-[#242424]">
         <div className="w-full flex items-center relative justify-center">
           <img
             className="rounded-full h-32 w-32 max-lg:w-28 max-lg:h-28 max-md:h-24 max-md:w-24 max-sm:h-40 max-sm:-top-0 max-sm:w-40 absolute top-0 max-md:top-5"
@@ -37,7 +37,7 @@ function SideBar({ sideBar, setAllTask, setImportantTask, setTudayTask }) {
             alt=""
           />
         </div>
-        <div className="dark:bg-[#2C2C2C]  max-sm:px-1  max-md:px-3 max-md:w-full max-lg:px-1 md:w-full py-12 max-max-md:py-10 flex flex-col items-center justify-center max-sm:w-full max-sm:mt-28 mt-20 gap-2 bg-[#EEF6EF]">
+        <div className="dark:bg-[#2C2C2C]  max-sm:px-1  max-md:px-1 md:px-1 max-md:w-full max-lg:px-1 md:w-full py-12 max-max-md:py-10 flex flex-col items-center justify-center max-sm:w-full max-sm:mt-28 mt-20 gap-2 bg-[#EEF6EF]">
           <h1 className="font-semibold text-xl max-sm:text-3xl max-max-md:text-sm">
             Hay, ABCD
           </h1>
