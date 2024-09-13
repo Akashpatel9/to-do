@@ -1,4 +1,3 @@
-
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { IoMdClose, IoMdStar } from "react-icons/io";
 import { CiBellOn, CiCalendar } from "react-icons/ci";
@@ -12,7 +11,7 @@ import { deleteTask, toggleTaskCompleted, toggleTaskImportent } from "../store/a
 import { useDispatch } from "react-redux";
 import { FaRegStar } from "react-icons/fa";
 
-function RightSideBar({todoData, isOpened, setIsOpened}) {
+function RightSideBar({todoData, isOpened, setIsOpened}:any) {
  
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [calander, setCalander] = useState(false);
@@ -22,7 +21,7 @@ function RightSideBar({todoData, isOpened, setIsOpened}) {
 
   const dispatch = useDispatch();
 
-  const handleDateChange = (selectedDate) => {
+  const handleDateChange = (selectedDate:any) => {
     setDate(selectedDate);
   };
 

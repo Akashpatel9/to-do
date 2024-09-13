@@ -5,16 +5,15 @@ import { MdOutlineAssignmentInd } from "react-icons/md";
 import ProgressBar from "./ProgressBar";
 import { LuPlus } from "react-icons/lu";
 import { HiOutlineNewspaper } from "react-icons/hi2";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 
-function SideBar({ sideBar, setAllTask, setImportantTask, setTudayTask }) {
+function SideBar({ sideBar, setAllTask, setImportantTask, setTudayTask }:any) {
 
 
   let totalToday = 0;
 
   const percentage = useSelector((state) => {
-    let data = state?.task?.tasks.filter((e) => {
+    let data = state?.task?.tasks?.filter((e) => {
       return new Date(e?.date).getDate() === new Date(Date.now()).getDate();
     });
     totalToday = data?.length;

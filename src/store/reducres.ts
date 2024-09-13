@@ -18,7 +18,7 @@ const initialState = {
   tasks: [], // Array to hold task objects
 };
 
-const taskReducer = (state = initialState, action) => {
+const taskReducer = (state = initialState, action:any) => {
   switch (action.type) {
     case ADD_TASK:
       return {
@@ -39,8 +39,8 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id === action.payload.taskId
-            ? { ...task, completed: !task.completed }
+          task?.id === action.payload.taskId
+            ? { ...task, completed: !task?.completed }
             : task
         ),
       };
@@ -49,8 +49,8 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id === action.payload.taskId
-            ? { ...task, important: !task.important }
+          task?.id === action.payload.taskId
+            ? { ...task, important: !task?.important }
             : task
         ),
       };
@@ -59,7 +59,7 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id === action.payload.taskId
+          task?.id === action.payload.taskId
             ? { ...task, notes: action.payload.note }
             : task
         ),
@@ -69,7 +69,7 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id === action.payload.taskId
+          task?.id === action.payload.taskId
             ? { ...task, dueDate: action.payload.dueDate }
             : task
         ),
@@ -78,7 +78,7 @@ const taskReducer = (state = initialState, action) => {
       case DELETE_TASK:
         return {
           ...state,
-          tasks: state.tasks.filter((task) => task.id !== action.payload.taskId),
+          tasks: state.tasks.filter((task) => task?.id !== action.payload.taskId),
         };
   
 
@@ -87,7 +87,7 @@ const taskReducer = (state = initialState, action) => {
   }
 };
 
-const authReducer = (state = initialStateAuth, action) => {
+const authReducer = (state = initialStateAuth, action:any) => {
   switch (action.type) {
     case LOGOUT:
       return { ...state, isAuthenticated: false };

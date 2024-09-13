@@ -2,18 +2,17 @@
 import { createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import rootReducer from './reducres';
-import storage from 'redux-persist/lib/storage'
 
 
 
 const storage2 = {
-    getItem: (key) => {
+    getItem: (key:any) => {
       return Promise.resolve(localStorage.getItem(key)); // Wrap in a Promise to make it async
     },
-    setItem: (key, value) => {
+    setItem: (key:any, value:any) => {
       return Promise.resolve(localStorage.setItem(key, value));
     },
-    removeItem: (key) => {
+    removeItem: (key:any) => {
       return Promise.resolve(localStorage.removeItem(key));
     }
   };

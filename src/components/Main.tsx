@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../store/action";
 
-function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }) {
-  const [grid, setGrid] = useState(false);
+
+function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }:any) {
+  const [grid, setGrid] = useState<boolean>(false);
   const [task, setTask] = useState("");
   const dispatch = useDispatch();
 
@@ -16,7 +17,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }) {
 
   const [tasks, setTasks] = useState([]);
 
-  const data = useSelector((state) => state.task.tasks);
+  const data = useSelector((state) => state?.task?.tasks);
 
   useEffect(() => {
     if (allTask) {
@@ -25,7 +26,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }) {
       setIsLoading(false);
     } else if (importantTask) {
       setIsLoading(true);
-      let d = data.map((e) => {
+      let d = data.map((e:any) => {
         if (e.important) {
           return e;
         }
@@ -34,7 +35,7 @@ function Main({ setTodoData, setSideBar, allTask, importantTask, todayTask }) {
       setIsLoading(false);
     } else if (todayTask) {
       setIsLoading(true);
-      let d = data.map((e) => {
+      let d = data.map((e:any) => {
         if (new Date(e?.date).getDate() === new Date(Date.now()).getDate()) {
           return e;
         }

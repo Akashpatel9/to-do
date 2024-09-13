@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { toggleTaskCompleted, toggleTaskImportent } from "../store/action";
 import { IoMdStar } from "react-icons/io";
 
-function TodosCard({ data ,setSideBar }) {
+function TodosCard({ data ,setSideBar }:any) {
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -32,7 +32,7 @@ function TodosCard({ data ,setSideBar }) {
           }}
         />
 
-        <button onClick={()=>(setSideBar(pre=>!pre))} className="font-normal text-xl text-[#1B281B] dark:text-white">
+        <button onClick={()=>(setSideBar((pre:any)=>!pre))} className="font-normal text-xl text-[#1B281B] dark:text-white">
           <h1 className={` ${data?.completed&&"line-through"}`}>{data?.name}</h1>
         </button>
 

@@ -1,6 +1,5 @@
-import React from "react";
 
-function ProgressBar({progress}) {
+function ProgressBar({progress}:any) {
     
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
