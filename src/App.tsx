@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useSelector } from "react-redux";
+import Main from "./components/Main";
+import NevBar from "./components/NevBar";
+import RightSideBar from "./components/RightSideBar";
+import SideBar from "./components/SideBar";
+import Signin from "./_auth/Signin";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const {isAuthenticated} = useSelector((state)=>state?.auth);
 
+  
+
+  const [todoData, setTodoData] = useState({});
+  const [isOpened, setIsOpened] = useState(false);
+
+  const [allTask, setAllTask] = useState(true);
+  const [importantTask, setImportantTask] = useState(false);
+  const [todayTask, setTudayTask] = useState(false);
+
+  const [sideBar, setSideBar] = useState(false);
+
+  if(!isAuthenticated){
+    return (<Signin/>)
+  }
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="h-screen w-full px-12 max-sm:px-4 max-md:px-6 md:px-6 dark:bg-[#242424]">
+        <NevBar setSideBar={setSideBar} />
+        <div className="flex w-full gap-12 max-h-[94vh]">
+          <SideBar sideBar={sideBar}   setAllTask={setAllTask} setImportantTask={setImportantTask} setTudayTask={setTudayTask}/>
+          <Main allTask={allTask} todayTask={todayTask} importantTask={importantTask} setTodoData={setTodoData} setSideBar={setIsOpened} />
+          <RightSideBar  todoData={todoData} isOpened={isOpened} setIsOpened={setIsOpened}/>
+        </div>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
