@@ -58,9 +58,9 @@ const taskReducer = (state = initialState, action:any) => {
     case ADD_NOTE_TO_TASK:
       return {
         ...state,
-        tasks: state.tasks.map((task) =>// @ts-ignore
-          task?.id === action.payload.taskId// @ts-ignore
-            ? { ...task, notes: action.payload.note }
+        tasks: state.tasks.map((task:any) =>// @ts-ignore
+          task?.id === action?.payload?.taskId// @ts-ignore
+            ? { ...task, notes: action?.payload?.note }
             : task
         ),
       };
@@ -70,9 +70,9 @@ const taskReducer = (state = initialState, action:any) => {
         ...state,
         tasks: state.tasks.map((task) =>
           // @ts-ignore
-          task?.id === action.payload.taskId
+          task?.id === action?.payload?.taskId
           // @ts-ignore
-            ? { ...task, dueDate: action.payload.dueDate }
+            ? { ...task, dueDate: action?.payload?.dueDate }
             : task
         ),
       };
@@ -80,7 +80,7 @@ const taskReducer = (state = initialState, action:any) => {
       case DELETE_TASK:
         return {
           ...state,// @ts-ignore
-          tasks: state.tasks.filter((task) => task?.id !== action.payload.taskId),
+          tasks: state.tasks.filter((task:any) => task?.id !== action?.payload?.taskId),
         };
   
 
